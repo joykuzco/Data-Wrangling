@@ -1,0 +1,14 @@
+---
+title: "Data Import"
+output: html_document
+Author: Joy Hsu
+Date: 2018-09-18
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+#Two Kinds of Paths
