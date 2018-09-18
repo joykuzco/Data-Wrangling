@@ -128,16 +128,57 @@ $(document).ready(function () {
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
 ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div id="two-kinds-of-paths" class="section level1">
 <h1>Two Kinds of Paths</h1>
+<ol style="list-style-type: decimal">
+<li>Absolute: a file or folder’s “full address” on your computer
+<ul>
+<li>Problematic when another user does not have the same user pathway</li>
+</ul></li>
+<li>Relative: directions to a file or folder from your current working directory
+<ul>
+<li>relative path to the same file as absolute path “./data/FAS_litters.csv”</li>
+</ul></li>
+</ol>
+</div>
+<div id="import-fas-csv-files" class="section level1">
+<h1>Import FAS csv files</h1>
+<p>Import my first csv</p>
+<pre class="r"><code>litters_data = read_csv(file = &quot;./data/FAS_litters.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Group = col_character(),
+##   `Litter Number` = col_character(),
+##   `GD0 weight` = col_double(),
+##   `GD18 weight` = col_double(),
+##   `GD of Birth` = col_integer(),
+##   `Pups born alive` = col_integer(),
+##   `Pups dead @ birth` = col_integer(),
+##   `Pups survive` = col_integer()
+## )</code></pre>
+<pre class="r"><code>litters_data = janitor::clean_names(litters_data)
+#Above, example of Relative Path
+#janitor takes litters data and cleans up names</code></pre>
+<p>Import pups data</p>
+<pre class="r"><code>pups_data = read_csv(file = &quot;./data/FAS_pups.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   `Litter Number` = col_character(),
+##   Sex = col_integer(),
+##   `PD ears` = col_integer(),
+##   `PD eyes` = col_integer(),
+##   `PD pivot` = col_integer(),
+##   `PD walk` = col_integer()
+## )</code></pre>
+<pre class="r"><code>pups_data = janitor::clean_names(pups_data)</code></pre>
 </div>
 
 

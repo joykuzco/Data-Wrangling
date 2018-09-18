@@ -12,3 +12,22 @@ library(tidyverse)
 ```
 
 #Two Kinds of Paths
+1. Absolute: a file or folder’s “full address” on your computer
+    * Problematic when another user does not have the same user pathway
+1. Relative: directions to a file or folder from your current working directory
+    * relative path to the same file as absolute path "./data/FAS_litters.csv"
+    
+#Import FAS csv files
+Import my first csv
+```{r}
+litters_data = read_csv(file = "./data/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
+#Above, example of Relative Path
+#janitor takes litters data and cleans up names
+```
+Import pups data
+```{r}
+pups_data = read_csv(file = "./data/FAS_pups.csv")
+pups_data = janitor::clean_names(pups_data)
+```
+
