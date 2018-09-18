@@ -45,11 +45,20 @@ skimr::skim(litters_data)
 1. Scans rows to determine type of character
 1. Allows shorthand for almost every data type
 ```{r}
-#shorthand for defining almost every data type
-litters_data = read_csv(file = "./data/FAS_litters.csv",
-  col_types = "ccddiiii"
-)
+#col_types allows you to define shorthand every data type
+litters_data = read_csv(file = "./data/FAS_litters.csv", col_types = "ccddiiii")
 litters_data
+```
+#Other Formats
+1. Read in mlb data, excel spreadsheet
+1. Use package for read excel
+```{r}
+#read data using package for read excel
+mlb_data = readxl::read_excel(path = "./data/mlb11.xlsx", range = "A1:E17")
+#narrow range of cells using range specification
+mlb_data = readxl::read_excel(path = "./data/mlb11.xlsx")
+#data head
+head(mlb_data)
 ```
 
 
